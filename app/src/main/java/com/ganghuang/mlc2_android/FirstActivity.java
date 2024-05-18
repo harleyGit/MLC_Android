@@ -37,9 +37,31 @@ public class FirstActivity extends AppCompatActivity {
                         }
                     }
                 });
+        this.testBtnClickMethod();
 
+        this.testBtnOfLifeCycleMethod();
+
+    }
+
+
+    public void testBtnOfLifeCycleMethod(){//生命周期方法
+        Button button1_1 = findViewById(R.id.button_1_1);
+
+    button1_1.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            this.testJumpToActivityLifeCycle();
+        }
+
+        private  void testJumpToActivityLifeCycle(){
+            Intent intent = new Intent(FirstActivity.this, ActivityLifeCycle.class);
+            startActivity(intent);
+        }
+    });
+    }
+    public void testBtnClickMethod() {
         Button button1 = findViewById(R.id.button_1);
-        button1.setOnClickListener(new View.OnClickListener(){
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //this.testShowJumpToSecondActivity();
@@ -51,58 +73,62 @@ public class FirstActivity extends AppCompatActivity {
             }
 
 
-            private void testShowJumpToSeconActivityWithCallBackData(){//跳转SecondActivity并返回数据
-                Intent intent = new Intent (FirstActivity.this, SecondActivity.class);
+            private void testShowJumpToSeconActivityWithCallBackData() {//跳转SecondActivity并返回数据
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
                 activityResultLauncher.launch(intent);
             }
-            private void testHintJumpToDial(){//拨打电话10086,注意tel不能丢失，否则无法拨打电话
-                Intent intent = new Intent (Intent.ACTION_DIAL);
-                intent.setData (Uri.parse("tel:10086")) ;
+
+            private void testHintJumpToDial() {//拨打电话10086,注意tel不能丢失，否则无法拨打电话
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:10086"));
                 startActivity(intent);
             }
-            private void testHintJumpToThirdActivity(){//跳转类似网页的ThirdActivity
-                Intent intent = new Intent (Intent.ACTION_VIEW);//Android系统内 置 的 动 作 ， 其 常 量 值 次 a n d r o i d . i n t e n t . a c t i o n . V I E W
+
+            private void testHintJumpToThirdActivity() {//跳转类似网页的ThirdActivity
+                Intent intent = new Intent(Intent.ACTION_VIEW);//Android系统内 置 的 动 作 ， 其 常 量 值 次 a n d r o i d . i n t e n t . a c t i o n . V I E W
                 //intent.setData (Uri. parse("http://www.baidu.com")) ;
                 startActivity(intent);
             }
 
-            private void testHintJumpToWeb(){//跳转网页
-                Intent intent = new Intent (Intent.ACTION_VIEW);//Android系统内 置 的 动 作 ， 其 常 量 值 次 a n d r o i d . i n t e n t . a c t i o n . V I E W
-                intent. setData (Uri. parse("http://www.baidu.com")) ;
+            private void testHintJumpToWeb() {//跳转网页
+                Intent intent = new Intent(Intent.ACTION_VIEW);//Android系统内 置 的 动 作 ， 其 常 量 值 次 a n d r o i d . i n t e n t . a c t i o n . V I E W
+                intent.setData(Uri.parse("http://www.baidu.com"));
                 startActivity(intent);
             }
-            private  void testHintJumpToSecondActivity(){//隐示跳转到SecondActivity
+
+            private void testHintJumpToSecondActivity() {//隐示跳转到SecondActivity
                 //FirstActivity.this作为上下文
                 Intent intent = new Intent("android.intent.action.ACTION_START");
                 //默认的Category可以不用加的
                 intent.addCategory("com.example.activitytest.MY_CATEGORY");
                 startActivity(intent);
             }
-            private  void testShowJumpToSecondActivity(){//显示跳转到SecondActivity
+
+            private void testShowJumpToSecondActivity() {//显示跳转到SecondActivity
                 String data = "Hello SecondActivity 🍎🍊";
                 //FirstActivity.this作为上下文
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
                 intent.putExtra("extra_data", data);//传递数据给下一个activity
                 startActivity(intent);
             }
-            void testToastClick(){//弹出弹框
+
+            void testToastClick() {//弹出弹框
                 Toast.makeText(FirstActivity.this,
                         "you clicked Button 1",
                         Toast.LENGTH_SHORT).show();
             }
 
-            private void testFinishActivityClick(){//结束生命活动
+            private void testFinishActivityClick() {//结束生命活动
                 finish();//当前的活动就被成功销毁
             }
         });
     }
 
 
-
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         //R.menu.main 所在资源文件夹
         //getMenuInflater()方法能够得到MenuInflater 对象
-        getMenuInflater().inflate(R.menu.main,menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -110,7 +136,7 @@ public class FirstActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         //这里不能用Switch否则会报错：在Android Studio中使用JDK17以上版本，会出现switch语句报错"Constant expression required"的问题，这是因为在JDK17中switch语句的条件表达式支持使用枚举类型，而这个特性还没有被支持
-        if (item.getItemId() == R.id.add_item){
+        if (item.getItemId() == R.id.add_item) {
             Toast.makeText(this, "you clicked Add", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.remove_item) {
             Toast.makeText(this, "you clicked Remove", Toast.LENGTH_SHORT).show();

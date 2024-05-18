@@ -13,11 +13,24 @@
         android:theme="@style/Theme.MLC2_Android"
         tools:targetApi="31">
         <activity
+            android:name=".DialogActivity"
+            android:exported="false" />
+        <!--        下面的theme使用的是对话框主题-->
+        <activity
+            android:name=".NormalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".ActivityLifeCycle"
+            android:exported="false" />
+        <activity
             android:name=".ThirdActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="http" />
             </intent-filter>
         </activity>
