@@ -13,13 +13,35 @@
         android:theme="@style/Theme.MLC2_Android"
         tools:targetApi="31">
         <activity
+            android:name=".ThirdActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true">
+            <!-- 配置这个使其能够隐列相应：action和Category -->
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.activitytest.MY_CATEGORY" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".FirstActivity"
             android:exported="true"
             android:label="MLC2111">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
