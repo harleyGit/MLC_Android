@@ -3,26 +3,40 @@ package com.ganghuang.mlc2_android;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class FirstActivity extends AppCompatActivity {
+
+    private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
+
+        // 初始化ActivityResultLauncher
+        activityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK) {
+                        Intent data = result.getData();
+                        if (data != null) {
+                            String resultData = data.getStringExtra("resultKey");
+                            Log.v("🍎返回的数据", resultData);
+                        }
+                    }
+                });
 
         Button button1 = findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener(){
@@ -31,10 +45,21 @@ public class FirstActivity extends AppCompatActivity {
                 //this.testShowJumpToSecondActivity();
                 //this.testToastClick();
                 //this.testHintJumpToSecondActivity();
-                this.testHintJumpToThirdActivity();
+                //this.testHintJumpToThirdActivity();
+//                this.testHintJumpToDial();
+                this.testShowJumpToSeconActivityWithCallBackData();
             }
 
 
+            private void testShowJumpToSeconActivityWithCallBackData(){//跳转SecondActivity并返回数据
+                Intent intent = new Intent (FirstActivity.this, SecondActivity.class);
+                activityResultLauncher.launch(intent);
+            }
+            private void testHintJumpToDial(){//拨打电话10086,注意tel不能丢失，否则无法拨打电话
+                Intent intent = new Intent (Intent.ACTION_DIAL);
+                intent.setData (Uri.parse("tel:10086")) ;
+                startActivity(intent);
+            }
             private void testHintJumpToThirdActivity(){//跳转类似网页的ThirdActivity
                 Intent intent = new Intent (Intent.ACTION_VIEW);//Android系统内 置 的 动 作 ， 其 常 量 值 次 a n d r o i d . i n t e n t . a c t i o n . V I E W
                 //intent.setData (Uri. parse("http://www.baidu.com")) ;
@@ -54,8 +79,10 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             private  void testShowJumpToSecondActivity(){//显示跳转到SecondActivity
+                String data = "Hello SecondActivity 🍎🍊";
                 //FirstActivity.this作为上下文
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                intent.putExtra("extra_data", data);//传递数据给下一个activity
                 startActivity(intent);
             }
             void testToastClick(){//弹出弹框
