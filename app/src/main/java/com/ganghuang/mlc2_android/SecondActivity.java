@@ -1,5 +1,6 @@
 package com.ganghuang.mlc2_android;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,17 @@ import android.app.Activity;
 public class SecondActivity extends BaseActivity {
 
     private Button button2;
+
+    public  static void actionStart(Context context, String data1, String data2){//跳转到SecondActivit
+        Intent intent = new Intent(context, SecondActivity.class);
+        intent.putExtra("param1", data1);
+        intent.putExtra("parma2", data2);
+
+        context.startActivity(intent);
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

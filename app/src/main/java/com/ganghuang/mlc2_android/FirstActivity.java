@@ -60,7 +60,7 @@ public class FirstActivity extends BaseActivity {
         });
     }
 
-    public void testBtnClickMethod() {
+    public void testBtnClickMethod() {//Button1跳转方法
         Button button1 = findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,10 +70,14 @@ public class FirstActivity extends BaseActivity {
                 //this.testHintJumpToSecondActivity();
                 //this.testHintJumpToThirdActivity();
 //                this.testHintJumpToDial();
-                this.testShowJumpToSeconActivityWithCallBackData();
+                //this.testShowJumpToSeconActivityWithCallBackData();
+                this.testJumpToSecondActivity();
             }
 
 
+            private  void testJumpToSecondActivity(){//SecondActivity内部封装方法跳转
+                SecondActivity.actionStart(FirstActivity.this, "参数1", "参数2");
+            }
             private void testShowJumpToSeconActivityWithCallBackData() {//跳转SecondActivity并返回数据
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
                 activityResultLauncher.launch(intent);
