@@ -18,4 +18,11 @@
         android:layout_height="wrap_content"
         android:text="Activity的生命活动🎡"/>
 
+    <Button
+        android:id="@+id/button_1.2"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4种基本布局"/>
+
 </LinearLayout>

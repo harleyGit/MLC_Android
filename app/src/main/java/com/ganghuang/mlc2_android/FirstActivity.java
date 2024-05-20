@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FirstActivity extends BaseActivity {
 
     private ActivityResultLauncher<Intent> activityResultLauncher;
+    private Button layoutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +39,23 @@ public class FirstActivity extends BaseActivity {
                     }
                 });
         this.testBtnClickMethod();
+        this.testPushToLayoutActivity();
 
         this.testBtnOfLifeCycleMethod();
 
     }
 
+
+    public  void  testPushToLayoutActivity(){
+        layoutBtn = findViewById(R.id.button_1_2);
+        layoutBtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                TestUILayoutActivity.actionStartOfTestUILayoutActivity(FirstActivity.this);
+            }
+        });
+    }
 
     public void testBtnOfLifeCycleMethod() {//生命周期方法
         Button button1_1 = findViewById(R.id.button_1_1);
