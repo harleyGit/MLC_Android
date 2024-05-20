@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MLC2_Android"
         tools:targetApi="31">
         <activity
+            android:name=".TestUIWidgetActivity"
+            android:exported="false" />
+        <activity
             android:name=".DialogActivity"
             android:exported="false" /> <!-- 下面的theme使用的是对话框主题 -->
         <activity

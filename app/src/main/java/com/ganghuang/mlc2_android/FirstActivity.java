@@ -71,10 +71,14 @@ public class FirstActivity extends BaseActivity {
                 //this.testHintJumpToThirdActivity();
 //                this.testHintJumpToDial();
                 //this.testShowJumpToSeconActivityWithCallBackData();
-                this.testJumpToSecondActivity();
+                //this.testJumpToSecondActivity();
+                this.testJumpToTestUIWidgetActivity();
             }
 
 
+            private  void testJumpToTestUIWidgetActivity(){//跳转TestUIWidgetActivity
+                TestUIWidgetActivity.actionStartOfTestUIWidgetActivity(FirstActivity.this);
+            }
             private  void testJumpToSecondActivity(){//SecondActivity内部封装方法跳转
                 SecondActivity.actionStart(FirstActivity.this, "参数1", "参数2");
             }
