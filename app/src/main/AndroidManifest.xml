@@ -14,8 +14,7 @@
         tools:targetApi="31">
         <activity
             android:name=".DialogActivity"
-            android:exported="false" />
-        <!--        下面的theme使用的是对话框主题-->
+            android:exported="false" /> <!-- 下面的theme使用的是对话框主题 -->
         <activity
             android:name=".NormalActivity"
             android:exported="false"
@@ -37,6 +36,7 @@
         <activity
             android:name=".SecondActivity"
             android:exported="true">
+
             <!-- 配置这个使其能够隐列相应：action和Category -->
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_START" />

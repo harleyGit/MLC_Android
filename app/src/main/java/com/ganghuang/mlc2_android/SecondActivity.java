@@ -15,34 +15,19 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.app.Activity;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {
 
+    private Button button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_second);
 
-        Button button2 = findViewById(R.id.button_2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                this.getLastActivityDataAndBackLastActivity();
-            }
+        button2 = findViewById(R.id.button_2);
+        this.testButton2Click();
 
-            private void getLastActivityDataAndBackLastActivity() {//获取上一个Activity数据并返回
-                Intent resultIntent = new Intent();
-                /**
-                 * 第 一 个 参 数 用 于 向 上 一个 活 动 返 回 处 理 结 果 ， 一 般 只 使 用 RESULT_OK或RESULT_CANCELED这两个值，
-                 * 第二个参数则把带有数据的Intent传递回去，然后调用了finish()方法来销毁当前活 动
-                 * */
-                resultIntent.putExtra("resultKey", "Some Result Data🐝😡🐝🐝");
-                setResult(Activity.RESULT_OK, resultIntent);
-                finish();
-            }
-        });
-
-       // this.getLastActivityData();
+        // this.getLastActivityData();
         this.configVideoPlayView();
 
 
@@ -58,6 +43,38 @@ public class SecondActivity extends AppCompatActivity {
 
         // 设置全屏模式，隐藏状态栏和导航栏
         hideSystemUI();
+    }
+
+
+    private void testButton2Click() {
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //this.getLastActivityDataAndBackLastActivity();
+                this.testShowJumpToThirdActivity();
+            }
+
+
+            private void testShowJumpToThirdActivity() {//跳转类似网页的ThirdActivity
+                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                startActivity(intent);
+            }
+
+            private void getLastActivityDataAndBackLastActivity() {//获取上一个Activity数据并返回
+                Intent resultIntent = new Intent();
+                /**
+                 * 第 一 个 参 数 用 于 向 上 一个 活 动 返 回 处 理 结 果 ， 一 般 只 使 用 RESULT_OK或RESULT_CANCELED这两个值，
+                 * 第二个参数则把带有数据的Intent传递回去，然后调用了finish()方法来销毁当前活 动
+                 * */
+                resultIntent.putExtra("resultKey", "Some Result Data🐝😡🐝🐝");
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
+            }
+        });
+
+
+
     }
 
 

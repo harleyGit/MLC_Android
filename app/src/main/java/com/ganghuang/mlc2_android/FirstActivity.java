@@ -15,7 +15,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
 
     private ActivityResultLauncher<Intent> activityResultLauncher;
 
@@ -44,21 +44,22 @@ public class FirstActivity extends AppCompatActivity {
     }
 
 
-    public void testBtnOfLifeCycleMethod(){//生命周期方法
+    public void testBtnOfLifeCycleMethod() {//生命周期方法
         Button button1_1 = findViewById(R.id.button_1_1);
 
-    button1_1.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            this.testJumpToActivityLifeCycle();
-        }
+        button1_1.setOnClickListener(new View.OnClickListener() {//BUTTON1方法
+            @Override
+            public void onClick(View v) {
+                this.testJumpToActivityLifeCycle();
+            }
 
-        private  void testJumpToActivityLifeCycle(){
-            Intent intent = new Intent(FirstActivity.this, ActivityLifeCycle.class);
-            startActivity(intent);
-        }
-    });
+            private void testJumpToActivityLifeCycle() {
+                Intent intent = new Intent(FirstActivity.this, ActivityLifeCycle.class);
+                startActivity(intent);
+            }
+        });
     }
+
     public void testBtnClickMethod() {
         Button button1 = findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener() {
