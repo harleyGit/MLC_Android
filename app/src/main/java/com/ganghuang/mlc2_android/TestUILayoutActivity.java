@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -28,6 +29,16 @@ public class TestUILayoutActivity extends BaseActivity {
             return insets;
         });
 
+        this.testHideSystemNaviBar();
 
     }
+
+
+    private  void  testHideSystemNaviBar(){//隐藏系统自带的导航栏
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.hide();
+        }
+    }
+
 }

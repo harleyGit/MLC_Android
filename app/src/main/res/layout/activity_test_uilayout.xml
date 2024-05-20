@@ -8,6 +8,8 @@
     android:orientation="horizontal"
     tools:context=".TestUILayoutActivity">
 
+    <include layout="@layout/title_layout"/>
+
     <Button
         android:id="@+id/test_uiLayout_button2_0"
         android:layout_width="wrap_content"
