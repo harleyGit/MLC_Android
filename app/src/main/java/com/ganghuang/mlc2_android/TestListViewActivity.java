@@ -3,8 +3,11 @@ package com.ganghuang.mlc2_android;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +53,13 @@ public class TestListViewActivity extends AppCompatActivity {
         initFruits();
         TestFruitAdapter fruitAdapter = new TestFruitAdapter(TestListViewActivity.this, R.layout.test_fruit_item, this.fruitList);
         ListView listView = (ListView) findViewById(R.id.list_view);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TestFruit fruit = fruitList.get(position);
+                Toast.makeText(TestListViewActivity.this, fruit.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
         listView.setAdapter(fruitAdapter);
     }
 
