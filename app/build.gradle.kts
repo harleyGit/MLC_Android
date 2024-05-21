@@ -42,9 +42,10 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("com.android.support:appcompat-v7:24.2.1")
-    implementation("com.android.support:recyclerview-v7:24.2.1")
-    testImplementation("junit:junit:4.12")
+    //implementation("com.android.support:appcompat-v7:24.2.1")
+    //implementation("com.android.support:recyclerview-v7:24.2.1")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    //testImplementation("junit:junit:4.12")
 
     //fastjson json解析库：https://blog.csdn.net/qq_20451879/article/details/72477211
     implementation ("com.alibaba:fastjson:1.1.72.android")

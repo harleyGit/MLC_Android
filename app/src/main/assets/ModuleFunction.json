@@ -1,0 +1,57 @@
+[
+  {
+    "functionId": "firstActivity202405211620",
+    "functionName": "FirstActivity",
+    "functionPic": "apple"
+  },
+  {
+    "functionId": "activityLifeCycle202405211621",
+    "functionName": "Activity的生命周期",
+    "functionPic": "banana"
+  },
+  {
+    "functionId": "activityLifeCycle202405211801",
+    "functionName": "ListView的用法",
+    "functionPic": "cherry"
+  },
+  {
+    "functionId": "uilayoutActivity202405211802",
+    "functionName": "ui布局的使用",
+    "functionPic": "edit"
+  },
+  {
+    "functionId": "widgetActivity202405211803",
+    "functionName": "简单组件",
+    "functionPic": "grape"
+  },
+  {
+    "functionId": "secondActivity202405211804",
+    "functionName": "SecondActivity",
+    "functionPic": "mango"
+  },
+  {
+    "functionId": "xxxx202405211804",
+    "functionName": "xxx",
+    "functionPic": "orange"
+  },
+  {
+    "functionId": "xxxx202405211804",
+    "functionName": "xxx",
+    "functionPic": "pear"
+  },
+  {
+    "functionId": "xxxx202405211804",
+    "functionName": "xxx",
+    "functionPic": "pineapple"
+  },
+  {
+    "functionId": "xxxx202405211804",
+    "functionName": "xxx",
+    "functionPic": "strawberry"
+  },
+  {
+    "functionId": "xxxx202405211804",
+    "functionName": "xxx",
+    "functionPic": "watermelon"
+  }
+]
