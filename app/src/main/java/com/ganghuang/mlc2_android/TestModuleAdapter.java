@@ -2,11 +2,13 @@ package com.ganghuang.mlc2_android;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +18,7 @@ import java.util.List;
 class TestModuleViewHolder extends RecyclerView.ViewHolder {
     ImageView moduleImage;
     TextView moduleName;
+    View moduleItemView;
 
 
     /**
@@ -24,6 +27,7 @@ class TestModuleViewHolder extends RecyclerView.ViewHolder {
      */
     public TestModuleViewHolder(View itemView) {
         super(itemView);
+        this.moduleItemView = itemView;
         moduleImage = itemView.findViewById(R.id.test_module_image);
         moduleName = itemView.findViewById(R.id.test_module_name);
     }
@@ -46,7 +50,32 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                 .inflate(R.layout.test_module_layout, parent, false);
         //把加载出来的布局传入到构造函数当中，最后将ViewHolder的实例返回。
         TestModuleViewHolder holder = new TestModuleViewHolder(view);
+        holder.moduleItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getBindingAdapterPosition();
+                TestModuleFunctionModel model = modelList.get(position);
+                Toast.makeText(view.getContext(),"你点击了 "+model.getFunctionName(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.moduleImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getBindingAdapterPosition();
+                TestModuleFunctionModel model = modelList.get(position);
+                Toast.makeText(view.getContext(),"你点击了图片 "+model.getFunctionName(),Toast.LENGTH_SHORT).show();
+
+                // 通过外部类引用调用 testAA 方法
+                TestModuleAdapter.this.testAA();
+            }
+
+        });
         return holder;
+    }
+
+    private void testAA(){
+        Log.d("🍎", "在外卖哪哦哦那个");
     }
 
     /**
