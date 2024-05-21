@@ -42,9 +42,19 @@ public class FirstActivity extends BaseActivity {
         this.testPushToLayoutActivity();
 
         this.testBtnOfLifeCycleMethod();
+        this.testPushToListViewActivity();
 
     }
 
+    public  void  testPushToListViewActivity(){
+        Button listBtn = findViewById(R.id.button_2_0);
+        listBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TestListViewActivity.actionStartOfTestListViewActivity(FirstActivity.this);
+            }
+        });
+    }
 
     public  void  testPushToLayoutActivity(){
         layoutBtn = findViewById(R.id.button_1_2);
