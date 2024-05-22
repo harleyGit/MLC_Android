@@ -2,6 +2,7 @@ package com.ganghuang.mlc2_android;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
 
     private List<TestModuleFunctionModel> modelList;
     Context context;
+
     public TestModuleAdapter(@NonNull Context context, List<TestModuleFunctionModel> functionList) {
         modelList = functionList;
         this.context = context;
@@ -50,38 +52,82 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                 .inflate(R.layout.test_module_layout, parent, false);
         //把加载出来的布局传入到构造函数当中，最后将ViewHolder的实例返回。
         TestModuleViewHolder holder = new TestModuleViewHolder(view);
-        holder.moduleItemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getBindingAdapterPosition();
-                TestModuleFunctionModel model = modelList.get(position);
-                Toast.makeText(view.getContext(),"你点击了 "+model.getFunctionName(),Toast.LENGTH_SHORT).show();
-            }
-        });
-
         holder.moduleImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = holder.getBindingAdapterPosition();
                 TestModuleFunctionModel model = modelList.get(position);
-                Toast.makeText(view.getContext(),"你点击了图片 "+model.getFunctionName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "你点击了图片 " + model.getFunctionName(), Toast.LENGTH_SHORT).show();
 
                 // 通过外部类引用调用 testAA 方法
                 TestModuleAdapter.this.testAA();
             }
 
         });
+        holder.moduleItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getBindingAdapterPosition();
+                TestModuleFunctionModel model = modelList.get(position);
+                Toast.makeText(view.getContext(), "你点击了 " + model.getFunctionName(), Toast.LENGTH_SHORT).show();
+
+                /**
+                 * TestModuleAdapter.this.testAA()：这里的 TestModuleAdapter.this 引用的是 TestModuleAdapter 类的实例。
+                 * 它确保你调用的是外部类的 testAA 方法，而不是内部类 View.OnClickListener 中的某个方法。
+                 *
+                 *
+                 * 匿名内部类：new View.OnClickListener() 创建了一个匿名内部类实例。
+                 * 在这个内部类中，this 关键字指的是这个内部类的实例，而不是外部类 TestModuleAdapter 的实例。
+                 *
+                 * 总结
+                 * 使用 TestModuleAdapter.this 是为了确保在匿名内部类中能够正确引用外部类的实例和方法。
+                 * 这样做的主要目的是解决作用域问题，因为在内部类中，this 关键字默认指向的是内部类的实例。
+                 */
+                if (model.getFunctionId().equals("firstActivity202405211620")) {
+                    TestModuleAdapter.this.testJumpToFirstActivity();
+                } else if (model.getFunctionId().equals("activityLifeCycle202405211621")) {
+                    TestModuleAdapter.this.testJumpToActivityLifeCycle();
+                } else if (model.getFunctionId().equals("secondActivity202405211804")) {
+                    TestModuleAdapter.this.testShowJumpToSecondActivity();
+                } else if (model.getFunctionId().equals("uilayoutActivity202405211802")) {
+                    TestUILayoutActivity.actionStartOfTestUILayoutActivity(TestModuleAdapter.this.context);
+                } else if (model.getFunctionId().equals("widgetActivity202405211803")) {
+                    TestModuleAdapter.this.testJumpToTestUIWidgetActivity();
+                } else if (model.getFunctionId().equals("listView202405211801")) {
+                    TestListViewActivity.actionStartOfTestListViewActivity(TestModuleAdapter.this.context);
+                }
+            }
+        });
         return holder;
     }
 
-    private void testAA(){
+
+    private  void testJumpToTestUIWidgetActivity(){//跳转TestUIWidgetActivity(简单组件)
+        TestUIWidgetActivity.actionStartOfTestUIWidgetActivity(this.context);
+    }
+    private void testShowJumpToSecondActivity() {//显示跳转到SecondActivity
+        String data = "Hello SecondActivity 🍎🍊";
+        //FirstActivity.this作为上下文
+        Intent intent = new Intent(this.context, SecondActivity.class);
+        intent.putExtra("extra_data", data);//传递数据给下一个activity
+        this.context.startActivity(intent);
+    }
+    private void testJumpToActivityLifeCycle() {//跳转到ActivityLifeCycle
+        Intent intent = new Intent(this.context, ActivityLifeCycle.class);
+        this.context.startActivity(intent);
+    }
+    private void testJumpToFirstActivity() {//跳转到FirstActivity
+        FirstActivity.actionJumpToFirstActivity(this.context);
+    }
+
+    private void testAA() {
         Log.d("🍎", "在外卖哪哦哦那个");
     }
 
     /**
      * 用于对RecyclerView子项的数据进行赋值的，会在每个子项被滚动到屏幕内的时候执行，
      * 这里我们通过position参数得到当前项的Fruit实例，然后再将数据设置到ViewHolder的ImageView和TextView当中即可。
-     * */
+     */
     @Override
     public void onBindViewHolder(@NonNull TestModuleViewHolder holder, int position) {
 
@@ -96,6 +142,6 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
     public int getItemCount() {
         return modelList.size();
     }
-    
+
 }
 

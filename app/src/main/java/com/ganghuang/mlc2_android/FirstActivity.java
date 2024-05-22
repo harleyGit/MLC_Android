@@ -1,5 +1,6 @@
 package com.ganghuang.mlc2_android;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +20,13 @@ public class FirstActivity extends BaseActivity {
 
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private Button layoutBtn;
+
+
+    public  static void actionJumpToFirstActivity(Context context){//跳转到FirstActivity
+        Intent intent = new Intent(context, FirstActivity.class);
+        context.startActivity(intent);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,20 +96,14 @@ public class FirstActivity extends BaseActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //this.testShowJumpToSecondActivity();
                 //this.testToastClick();
                 //this.testHintJumpToSecondActivity();
                 //this.testHintJumpToThirdActivity();
 //                this.testHintJumpToDial();
                 //this.testShowJumpToSeconActivityWithCallBackData();
                 //this.testJumpToSecondActivity();
-                this.testJumpToTestUIWidgetActivity();
             }
 
-
-            private  void testJumpToTestUIWidgetActivity(){//跳转TestUIWidgetActivity
-                TestUIWidgetActivity.actionStartOfTestUIWidgetActivity(FirstActivity.this);
-            }
             private  void testJumpToSecondActivity(){//SecondActivity内部封装方法跳转
                 SecondActivity.actionStart(FirstActivity.this, "参数1", "参数2");
             }
@@ -136,13 +138,7 @@ public class FirstActivity extends BaseActivity {
                 startActivity(intent);
             }
 
-            private void testShowJumpToSecondActivity() {//显示跳转到SecondActivity
-                String data = "Hello SecondActivity 🍎🍊";
-                //FirstActivity.this作为上下文
-                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-                intent.putExtra("extra_data", data);//传递数据给下一个activity
-                startActivity(intent);
-            }
+
 
             void testToastClick() {//弹出弹框
                 Toast.makeText(FirstActivity.this,
