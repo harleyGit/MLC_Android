@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ganghuang.mlc2_android.TestModules.TestMsgBubbleActivity;
+
 import java.util.List;
 
 class TestModuleViewHolder extends RecyclerView.ViewHolder {
@@ -95,6 +97,8 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestModuleAdapter.this.testJumpToTestUIWidgetActivity();
                 } else if (model.getFunctionId().equals("listView202405211801")) {
                     TestListViewActivity.actionStartOfTestListViewActivity(TestModuleAdapter.this.context);
+                } else if (model.getFunctionId().equals("simpleBubble202405211804")) {
+                    TestMsgBubbleActivity.actionStartOfTestMsgBubbleActivity(TestModuleAdapter.this.context);
                 }
             }
         });
