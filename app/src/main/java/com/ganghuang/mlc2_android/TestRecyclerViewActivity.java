@@ -1,7 +1,5 @@
 package com.ganghuang.mlc2_android;
 
-import android.content.Context;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,13 +11,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONException;
+import com.ganghuang.mlc2_android.TestModules.JsonParser;
+import com.ganghuang.mlc2_android.TestModules.TestFruitAdapter;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
 
 public class TestRecyclerViewActivity extends AppCompatActivity {
@@ -40,9 +34,9 @@ public class TestRecyclerViewActivity extends AppCompatActivity {
 
 
     private void testJsonParser(){
-        List<TestModuleFunctionModel> functionList = JsonParser.parseJson(this, "ModuleFunction.json");
+        List<TestFruitAdapter.TestModuleFunctionModel> functionList = JsonParser.parseJson(this, "ModuleFunction.json");
         if (functionList != null) {
-            for (TestModuleFunctionModel function : functionList) {
+            for (TestFruitAdapter.TestModuleFunctionModel function : functionList) {
                 Log.d("🍎JSON", "ID: " + function.getFunctionId() +
                         ", Name: " + function.getFunctionName() +
                         ", Pic: " + function.getFunctionPic());

@@ -1,4 +1,4 @@
-package com.ganghuang.mlc2_android;
+package com.ganghuang.mlc2_android.TestModules;
 
 public class TestFruit {
     private String name;

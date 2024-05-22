@@ -16,29 +16,29 @@
             android:name=".TestModules.TestMsgBubbleActivity"
             android:exported="false" />
         <activity
-            android:name=".FirstActivity"
+            android:name=".TestModules.FirstActivity"
             android:exported="true" />
         <activity
-            android:name=".TestListViewActivity"
+            android:name=".TestModules.TestListViewActivity"
             android:exported="false" />
         <activity
-            android:name=".TestUILayoutActivity"
+            android:name=".TestModules.TestFruitAdapter$TestUILayoutActivity"
             android:exported="false" />
         <activity
-            android:name=".TestUIWidgetActivity"
+            android:name=".TestModules.TestFruitAdapter$TestUIWidgetActivity"
             android:exported="false" />
         <activity
-            android:name=".DialogActivity"
+            android:name=".TestModules.DialogActivity"
             android:exported="false" /> <!-- 下面的theme使用的是对话框主题 -->
         <activity
-            android:name=".NormalActivity"
+            android:name=".TestModules.NormalActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name=".ActivityLifeCycle"
+            android:name=".TestModules.ActivityLifeCycle"
             android:exported="false" />
         <activity
-            android:name=".ThirdActivity"
+            android:name=".TestModules.TestFruitAdapter$ThirdActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_VIEW" />
@@ -49,7 +49,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SecondActivity"
+            android:name=".TestModules.SecondActivity"
             android:exported="true">
 
             <!-- 配置这个使其能够隐列相应：action和Category -->

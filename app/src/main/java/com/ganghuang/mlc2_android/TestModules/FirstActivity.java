@@ -1,4 +1,4 @@
-package com.ganghuang.mlc2_android;
+package com.ganghuang.mlc2_android.TestModules;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,8 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+
+import com.ganghuang.mlc2_android.R;
 
 public class FirstActivity extends BaseActivity {
 
@@ -70,7 +71,7 @@ public class FirstActivity extends BaseActivity {
 
             @Override
             public void onClick(View v) {
-                TestUILayoutActivity.actionStartOfTestUILayoutActivity(FirstActivity.this);
+                TestFruitAdapter.TestUILayoutActivity.actionStartOfTestUILayoutActivity(FirstActivity.this);
             }
         });
     }

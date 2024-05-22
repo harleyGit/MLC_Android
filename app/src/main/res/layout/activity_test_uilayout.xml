@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".TestUILayoutActivity">
+    tools:context=".TestModules.TestFruitAdapter$TestUILayoutActivity">
 
 <!--    引入布局类xml文件-->
 <!--    <include layout="@layout/title_layout"/>-->
 
 <!--    在添加自定义控件的时候，我们需要指明控件的完整类名，包名在这里是不可以省略的。-->
-    <com.ganghuang.mlc2_android.TestTitleLayout
+    <com.ganghuang.mlc2_android.TestModules.TestFruitAdapter.TestTitleLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

@@ -1,4 +1,4 @@
-package com.ganghuang.mlc2_android;
+package com.ganghuang.mlc2_android.TestModules;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.VideoView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import android.app.Activity;
+
+import com.ganghuang.mlc2_android.R;
 
 public class SecondActivity extends BaseActivity {
 
@@ -69,7 +70,7 @@ public class SecondActivity extends BaseActivity {
 
 
             private void testShowJumpToThirdActivity() {//跳转类似网页的ThirdActivity
-                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                Intent intent = new Intent(SecondActivity.this, TestFruitAdapter.ThirdActivity.class);
                 startActivity(intent);
             }
 

@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ganghuang.mlc2_android.R;
-import com.ganghuang.mlc2_android.TestUILayoutActivity;
 
 import java.util.ArrayList;
 import java.util.List;

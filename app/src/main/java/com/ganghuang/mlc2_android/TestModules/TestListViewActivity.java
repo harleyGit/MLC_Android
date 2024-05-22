@@ -1,4 +1,4 @@
-package com.ganghuang.mlc2_android;
+package com.ganghuang.mlc2_android.TestModules;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.ganghuang.mlc2_android.R;
 
 import java.util.ArrayList;
 import java.util.List;

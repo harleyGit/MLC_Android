@@ -1,4 +1,4 @@
-package com.ganghuang.mlc2_android;
+package com.ganghuang.mlc2_android.TestModules;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -35,17 +35,17 @@ public class JsonParser {
         return json;
     }
 
-    public static List<TestModuleFunctionModel> parseJson(Context context, String fileName) {
+    public static List<TestFruitAdapter.TestModuleFunctionModel> parseJson(Context context, String fileName) {
         String json = loadJSONFromAsset(context, fileName);
         if (json != null) {
-            return JSON.parseArray(json, TestModuleFunctionModel.class);
+            return JSON.parseArray(json, TestFruitAdapter.TestModuleFunctionModel.class);
         }
         return null;
     }
 
 
-    public static List<TestModuleFunctionModel> TestReadJson(Context context, String fileName) {
-        List<TestModuleFunctionModel> modelRess;
+    public static List<TestFruitAdapter.TestModuleFunctionModel> TestReadJson(Context context, String fileName) {
+        List<TestFruitAdapter.TestModuleFunctionModel> modelRess;
         try {
             //InputStreamReader 将字节输入流转换为字符流
             //注意：address.json 是因人而异的
@@ -64,9 +64,9 @@ public class JsonParser {
 
             //builder.toString() 返回表示此序列中数据的字符串 (就是json串，后面自行解析就行)
             //这里我用的是fastJson,具体解析方式自行决定就好,数据格式也自行决定就好
-            modelRess = JSON.parseArray(builder.toString(), TestModuleFunctionModel.class);
+            modelRess = JSON.parseArray(builder.toString(), TestFruitAdapter.TestModuleFunctionModel.class);
             for (int i = 0; i < modelRess.size(); i++) {
-                TestModuleFunctionModel model = modelRess.get(i);
+                TestFruitAdapter.TestModuleFunctionModel model = modelRess.get(i);
                 System.out.println("-----------------");
                 System.out.println("🍎 name= " + model.getFunctionName());
 
