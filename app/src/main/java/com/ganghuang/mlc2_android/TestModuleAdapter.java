@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ganghuang.mlc2_android.TestModules.ActivityLifeCycle;
 import com.ganghuang.mlc2_android.TestModules.FirstActivity;
 import com.ganghuang.mlc2_android.TestModules.SecondActivity;
+import com.ganghuang.mlc2_android.TestModules.TestBroadcastActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFragmentActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFruitAdapter;
 import com.ganghuang.mlc2_android.TestModules.TestListViewActivity;
@@ -107,6 +108,8 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestMsgBubbleActivity.actionStartOfTestMsgBubbleActivity(TestModuleAdapter.this.context);
                 } else if (model.getFunctionId().equals("fragment202405211804")) {
                     TestFragmentActivity.actionStartOfTestFragmentActivity(TestModuleAdapter.this.context);
+                } else if (model.getFunctionId().equals("broadcastReceiver202405211804")) {
+                    TestBroadcastActivity.actionStartOfTestBroadcastActivity(TestModuleAdapter.this.context);
                 }
             }
         });
