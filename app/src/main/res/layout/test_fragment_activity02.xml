@@ -4,20 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <fragment
-        android:id="@+id/test01_left_fragment"
+        android:id="@+id/test02_left_fragment"
         android:name="com.ganghuang.mlc2_android.TestModules.TestLeftFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />
     <fragment
-        android:id="@+id/test01_right_fragment"
+        android:id="@+id/test02_right_fragment"
         android:name="com.ganghuang.mlc2_android.TestModules.TestRightFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="3" />
 </LinearLayout>
-
-
-<!--    其中large就是一个限定符，那些屏幕被认为是large的设备就会自动加载layout-large文件夹下的布局，
-而小屏幕的设备则还是会加载layout文件夹下的布局。-->
-
