@@ -18,6 +18,7 @@ import com.ganghuang.mlc2_android.TestModules.ActivityLifeCycle;
 import com.ganghuang.mlc2_android.TestModules.FirstActivityTest;
 import com.ganghuang.mlc2_android.TestModules.SecondActivityTest;
 import com.ganghuang.mlc2_android.TestModules.TestBroadcastActivity;
+import com.ganghuang.mlc2_android.TestModules.TestFilepersistenceActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFragmentActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFruitAdapter;
 import com.ganghuang.mlc2_android.TestModules.TestListViewActivity;
@@ -81,6 +82,7 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                 TestFruitAdapter.TestModuleFunctionModel model = modelList.get(position);
                 Toast.makeText(view.getContext(), "你点击了 " + model.getFunctionName(), Toast.LENGTH_SHORT).show();
 
+                Context currentContext = TestModuleAdapter.this.context;
                 /**
                  * TestModuleAdapter.this.testAA()：这里的 TestModuleAdapter.this 引用的是 TestModuleAdapter 类的实例。
                  * 它确保你调用的是外部类的 testAA 方法，而不是内部类 View.OnClickListener 中的某个方法。
@@ -113,6 +115,8 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestBroadcastActivity.actionStartOfTestBroadcastActivity(TestModuleAdapter.this.context);
                 }else if(model.getFunctionId().equals("broadcastReceiverForceOffLine202405211804")){
                     TestLoginActivity.actionJumpToTestLoginActivity(TestModuleAdapter.this.context);
+                }else if(model.getFunctionId().equals("filePersistenceActivity202405211804")){
+                    TestFilepersistenceActivity.actionJumpToTestFilepersistenceActivity(currentContext);
                 }
             }
         });
