@@ -7,6 +7,8 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -41,9 +43,11 @@ public class TestBroadcastActivity extends AppCompatActivity {
 
 
         this.testBuildBroadcast();
+        this.testBroadcastReceiver();
+
     }
 
-    private void testBuildBroadcast() {//创建一个广播类
+    private void testBuildBroadcast() {//创建一个广播类,触发机制是关闭和打开流量开关，但是无法出现不知道哪部出现问题了
         intentFilter = new IntentFilter();
         //因为当网络状态发生变化时，系统发出的正是一条值为android.net.conn.CONNECTIVITY_CHANGE的广播，也就是说我们的广播接收器想要监听什么广播，就在这里添加相应的action。
         intentFilter.addAction("android.net.conn.CONNECTIVITY CHANGE");
@@ -55,6 +59,20 @@ public class TestBroadcastActivity extends AppCompatActivity {
          * 这样NetworkChange-Receiver就会收到所有值为android.net.conn.CONNECTIVITY_CHANGE的广播，也就实现了监听网络变化的功能。
          * */
         registerReceiver(networkChangeReciver, intentFilter);
+    }
+
+    private void testBroadcastReceiver() {//发送自定义广播事件
+
+        Button button = (Button) findViewById(R.id.test_broadcast_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.example.broadcasttest.MY BROADCAST");
+                //要设置包名否则，广播无法出现这个问题在android8以后需要设置
+                intent.setPackage("com.ganghuang.mlc2_android");
+                sendBroadcast(intent);
+            }
+        });
     }
 
     @Override
@@ -71,21 +89,17 @@ public class TestBroadcastActivity extends AppCompatActivity {
             //Toast.makeText(context, "📢🥱 NetworkChangeReceiver --network changes", Toast.LENGTH_SHORT).show();
 
 
-            ConnectivityManager connectionManager = (ConnectivityManager)
-                    getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager connectionManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo networkInfo = connectionManager.getActiveNetworkInfo();
             if (networkInfo != null && networkInfo.isAvailable()) {
-                Toast.makeText(context, "📢🥱 网络🛜可用network is available",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "📢🥱 网络🛜可用network is available", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(context, "📢🥱 网络🛜 network is unavailable",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "📢🥱 网络🛜 network is unavailable", Toast.LENGTH_SHORT).show();
             }
         }
     }
     //    public 标准广播（Normal broadcasts） 标准广播（Normal broadcasts）
 }
-
 
 
 
