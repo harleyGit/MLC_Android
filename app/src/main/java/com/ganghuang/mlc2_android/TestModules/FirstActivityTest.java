@@ -17,14 +17,14 @@ import androidx.annotation.NonNull;
 
 import com.ganghuang.mlc2_android.R;
 
-public class FirstActivity extends BaseActivity {
+public class FirstActivityTest extends TestBaseActivity {
 
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private Button layoutBtn;
 
 
     public  static void actionJumpToFirstActivity(Context context){//跳转到FirstActivity
-        Intent intent = new Intent(context, FirstActivity.class);
+        Intent intent = new Intent(context, FirstActivityTest.class);
         context.startActivity(intent);
     }
 
@@ -60,7 +60,7 @@ public class FirstActivity extends BaseActivity {
         listBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TestListViewActivity.actionStartOfTestListViewActivity(FirstActivity.this);
+                TestListViewActivity.actionStartOfTestListViewActivity(FirstActivityTest.this);
             }
         });
     }
@@ -71,7 +71,7 @@ public class FirstActivity extends BaseActivity {
 
             @Override
             public void onClick(View v) {
-                TestFruitAdapter.TestUILayoutActivity.actionStartOfTestUILayoutActivity(FirstActivity.this);
+                TestFruitAdapter.TestUILayoutActivityTest.actionStartOfTestUILayoutActivity(FirstActivityTest.this);
             }
         });
     }
@@ -86,7 +86,7 @@ public class FirstActivity extends BaseActivity {
             }
 
             private void testJumpToActivityLifeCycle() {
-                Intent intent = new Intent(FirstActivity.this, ActivityLifeCycle.class);
+                Intent intent = new Intent(FirstActivityTest.this, ActivityLifeCycle.class);
                 startActivity(intent);
             }
         });
@@ -106,10 +106,10 @@ public class FirstActivity extends BaseActivity {
             }
 
             private  void testJumpToSecondActivity(){//SecondActivity内部封装方法跳转
-                SecondActivity.actionStart(FirstActivity.this, "参数1", "参数2");
+                SecondActivityTest.actionStart(FirstActivityTest.this, "参数1", "参数2");
             }
             private void testShowJumpToSeconActivityWithCallBackData() {//跳转SecondActivity并返回数据
-                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                Intent intent = new Intent(FirstActivityTest.this, SecondActivityTest.class);
                 activityResultLauncher.launch(intent);
             }
 
@@ -142,7 +142,7 @@ public class FirstActivity extends BaseActivity {
 
 
             void testToastClick() {//弹出弹框
-                Toast.makeText(FirstActivity.this,
+                Toast.makeText(FirstActivityTest.this,
                         "you clicked Button 1",
                         Toast.LENGTH_SHORT).show();
             }

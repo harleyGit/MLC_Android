@@ -15,15 +15,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MLC2_Android"
         tools:targetApi="31">
+        <activity
+            android:name=".TestModules.TestMainActivity"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.example.broadcastbestpractice.FORCE OFFLINE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TestModules.TestLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestModules.TestBroadcatBestPracticeActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".TestModules.TestMyBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.example.broadcasttest.MY BROADCAST"/>
+                <action android:name="com.example.broadcasttest.MY BROADCAST" />
             </intent-filter>
-        </receiver>
-        <!-- 广播接收器 -->
+        </receiver> <!-- 广播接收器 -->
         <receiver
             android:name=".TestModules.TestBootCompleteReceiver"
             android:enabled="true"
@@ -43,13 +56,13 @@
             android:name=".TestModules.TestMsgBubbleActivity"
             android:exported="false" />
         <activity
-            android:name=".TestModules.FirstActivity"
+            android:name=".TestModules.FirstActivityTest"
             android:exported="true" />
         <activity
             android:name=".TestModules.TestListViewActivity"
             android:exported="false" />
         <activity
-            android:name=".TestModules.TestFruitAdapter$TestUILayoutActivity"
+            android:name=".TestModules.TestFruitAdapter$TestUILayoutActivityTest"
             android:exported="false" />
         <activity
             android:name=".TestModules.TestFruitAdapter$TestUIWidgetActivity"
@@ -65,7 +78,7 @@
             android:name=".TestModules.ActivityLifeCycle"
             android:exported="false" />
         <activity
-            android:name=".TestModules.TestFruitAdapter$ThirdActivity"
+            android:name=".TestModules.TestFruitAdapter$ThirdActivityTest"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_VIEW" />
@@ -76,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TestModules.SecondActivity"
+            android:name=".TestModules.SecondActivityTest"
             android:exported="true">
 
             <!-- 配置这个使其能够隐列相应：action和Category -->

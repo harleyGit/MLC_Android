@@ -6,14 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TestModules.TestFruitAdapter$ThirdActivityTest">
 
+    tools:context=".TestModules.TestMainActivity">
 
     <Button
-        android:id="@+id/button_3"
-        android:layout_marginTop="100dp"
+        android:id="@+id/test_main_activity_force_offline"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button 3"/>
+        android:text="Send force offline broadcast 强制下线" />
 
 </LinearLayout>
+
+
+

@@ -15,12 +15,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ganghuang.mlc2_android.TestModules.ActivityLifeCycle;
-import com.ganghuang.mlc2_android.TestModules.FirstActivity;
-import com.ganghuang.mlc2_android.TestModules.SecondActivity;
+import com.ganghuang.mlc2_android.TestModules.FirstActivityTest;
+import com.ganghuang.mlc2_android.TestModules.SecondActivityTest;
 import com.ganghuang.mlc2_android.TestModules.TestBroadcastActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFragmentActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFruitAdapter;
 import com.ganghuang.mlc2_android.TestModules.TestListViewActivity;
+import com.ganghuang.mlc2_android.TestModules.TestLoginActivity;
 import com.ganghuang.mlc2_android.TestModules.TestMsgBubbleActivity;
 
 import java.util.List;
@@ -99,7 +100,7 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                 } else if (model.getFunctionId().equals("secondActivity202405211804")) {
                     TestModuleAdapter.this.testShowJumpToSecondActivity();
                 } else if (model.getFunctionId().equals("uilayoutActivity202405211802")) {
-                    TestFruitAdapter.TestUILayoutActivity.actionStartOfTestUILayoutActivity(TestModuleAdapter.this.context);
+                    TestFruitAdapter.TestUILayoutActivityTest.actionStartOfTestUILayoutActivity(TestModuleAdapter.this.context);
                 } else if (model.getFunctionId().equals("widgetActivity202405211803")) {
                     TestModuleAdapter.this.testJumpToTestUIWidgetActivity();
                 } else if (model.getFunctionId().equals("listView202405211801")) {
@@ -110,6 +111,8 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestFragmentActivity.actionStartOfTestFragmentActivity(TestModuleAdapter.this.context);
                 } else if (model.getFunctionId().equals("broadcastReceiver202405211804")) {
                     TestBroadcastActivity.actionStartOfTestBroadcastActivity(TestModuleAdapter.this.context);
+                }else if(model.getFunctionId().equals("broadcastReceiverForceOffLine202405211804")){
+                    TestLoginActivity.actionJumpToTestLoginActivity(TestModuleAdapter.this.context);
                 }
             }
         });
@@ -123,7 +126,7 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
     private void testShowJumpToSecondActivity() {//显示跳转到SecondActivity
         String data = "Hello SecondActivity 🍎🍊";
         //FirstActivity.this作为上下文
-        Intent intent = new Intent(this.context, SecondActivity.class);
+        Intent intent = new Intent(this.context, SecondActivityTest.class);
         intent.putExtra("extra_data", data);//传递数据给下一个activity
         this.context.startActivity(intent);
     }
@@ -132,7 +135,7 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
         this.context.startActivity(intent);
     }
     private void testJumpToFirstActivity() {//跳转到FirstActivity
-        FirstActivity.actionJumpToFirstActivity(this.context);
+        FirstActivityTest.actionJumpToFirstActivity(this.context);
     }
 
     private void testAA() {

@@ -128,10 +128,10 @@ public class TestFruitAdapter extends ArrayAdapter<TestFruit> {
         }
     }
 
-    public static class TestUILayoutActivity extends BaseActivity {
+    public static class TestUILayoutActivityTest extends TestBaseActivity {
 
         public static void actionStartOfTestUILayoutActivity(Context context) {//跳转到TestUILayoutActivity
-            Intent intent = new Intent(context, TestUILayoutActivity.class);
+            Intent intent = new Intent(context, TestUILayoutActivityTest.class);
 
             context.startActivity(intent);
         }
@@ -259,7 +259,7 @@ public class TestFruitAdapter extends ArrayAdapter<TestFruit> {
         }
     }
 
-    public static class ThirdActivity extends BaseActivity {
+    public static class ThirdActivityTest extends TestBaseActivity {
 
         private Button button3;
 
@@ -288,7 +288,7 @@ public class TestFruitAdapter extends ArrayAdapter<TestFruit> {
                 }
 
                 private void testFinshActivity() {
-                    ActivityCollector.finishAll();
+                    TestActivityCollector.finishAll();
                 }
             });
         }

@@ -17,12 +17,12 @@ import android.app.Activity;
 
 import com.ganghuang.mlc2_android.R;
 
-public class SecondActivity extends BaseActivity {
+public class SecondActivityTest extends TestBaseActivity {
 
     private Button button2;
 
     public  static void actionStart(Context context, String data1, String data2){//跳转到SecondActivit
-        Intent intent = new Intent(context, SecondActivity.class);
+        Intent intent = new Intent(context, SecondActivityTest.class);
         intent.putExtra("param1", data1);
         intent.putExtra("parma2", data2);
 
@@ -70,7 +70,7 @@ public class SecondActivity extends BaseActivity {
 
 
             private void testShowJumpToThirdActivity() {//跳转类似网页的ThirdActivity
-                Intent intent = new Intent(SecondActivity.this, TestFruitAdapter.ThirdActivity.class);
+                Intent intent = new Intent(SecondActivityTest.this, TestFruitAdapter.ThirdActivityTest.class);
                 startActivity(intent);
             }
 
