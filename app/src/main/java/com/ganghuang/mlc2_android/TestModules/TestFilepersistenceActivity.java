@@ -2,7 +2,9 @@ package com.ganghuang.mlc2_android.TestModules;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,9 +51,46 @@ public class TestFilepersistenceActivity extends AppCompatActivity {
 
         this.testSaveEditText();
         this.testShowToastOfReadData();
+        this.testSharedPreferences();
     }
 
-    private  void testShowToastOfReadData(){
+
+    private void testSharedPreferences(){
+        Button btn1 = findViewById(R.id.test_file_persistence_btn2);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //SharedPreferences文件都是存放在/data/data/<package name>/shared_prefs/目录下的
+                //this.testSaveDataOfSharedPreferences();
+
+                this.testReadDataOfSharedPreferences();
+
+            }
+
+
+            private  void testReadDataOfSharedPreferences(){//读取数据
+                SharedPreferences pref=getSharedPreferences("data", MODE_PRIVATE);
+                String name = pref.getString("name", "");
+                int age = pref.getInt("age", 0);
+                boolean married = pref.getBoolean("married", false);
+                Log.d("🍎MainActivity", "name is " + name);
+                Log.d("🍎MainActivity", "age is " + age);
+                Log.d("🍎MainActivity", "married is " + married);
+
+            }
+
+            private void testSaveDataOfSharedPreferences(){//存储数据
+
+                SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
+                editor.putString("name", "HuangGang 🐯🥇忍着");
+                editor.putInt("age", 28);
+                editor.putBoolean("married", true);
+                editor.apply();
+            }
+        });
+    }
+
+    private  void testShowToastOfReadData(){//展示读取的数据
         String readTxt = this.load();
 
         Button btn = findViewById(R.id.test_file_persistence_btn0);

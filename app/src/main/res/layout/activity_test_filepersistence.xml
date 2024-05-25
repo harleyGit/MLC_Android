@@ -20,6 +20,12 @@
         android:layout_height="wrap_content"
         android:text="读取数据"
         android:id="@+id/test_file_persistence_btn0"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="数据存储-SharedPreferences"
+        android:id="@+id/test_file_persistence_btn2"/>
 
 </LinearLayout>
 
