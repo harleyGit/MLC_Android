@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ganghuang.mlc2_android.TestModules.ActivityLifeCycle;
 import com.ganghuang.mlc2_android.TestModules.FirstActivityTest;
 import com.ganghuang.mlc2_android.TestModules.SecondActivityTest;
+import com.ganghuang.mlc2_android.TestModules.TestAndroidThreadActivity;
 import com.ganghuang.mlc2_android.TestModules.TestBroadcastActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFilepersistenceActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFragmentActivity;
@@ -123,6 +124,8 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestRuntimePermissionActivity.actionJumpToTestRuntimePermissionActivity(currentContext);
                 } else if (model.getFunctionId().equals("netWork202405261012")) {
                     TestNerworkActivity.actionJumpToTestNerworkActivity(currentContext);
+                } else if (model.getFunctionId().equals("thread202405261013")) {
+                    TestAndroidThreadActivity.actionJumpToTestAndroidThreadActivity(currentContext);
                 }
             }
         });
