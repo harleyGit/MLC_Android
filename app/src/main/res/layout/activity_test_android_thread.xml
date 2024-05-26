@@ -14,6 +14,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Change Text" />
+    <Button
+        android:id="@+id/test_android_thread_btn00_change_text_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="异步消息处理UI" />
 
     <TextView
         android:id="@+id/test_android_thread_text"
