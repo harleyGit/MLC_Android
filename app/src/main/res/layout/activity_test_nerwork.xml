@@ -15,6 +15,13 @@
         android:layout_height="wrap_content"
         android:text="发送GET请求 Send Request" />
 
+    <Button
+        android:id="@+id/test_network_send_request_okhttp_btn"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="okHttp库发送请求" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

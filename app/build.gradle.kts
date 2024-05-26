@@ -49,5 +49,7 @@ dependencies {
 
     //fastjson json解析库：https://blog.csdn.net/qq_20451879/article/details/72477211
     implementation ("com.alibaba:fastjson:1.1.72.android")
+    //网络请求库
+    implementation("com.squareup.okhttp3:okhttp:3.4.1")
 
 }

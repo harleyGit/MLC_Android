@@ -23,6 +23,10 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class TestNerworkActivity extends AppCompatActivity implements View.OnClickListener {
     TextView responseText;
 
@@ -43,10 +47,37 @@ public class TestNerworkActivity extends AppCompatActivity implements View.OnCli
         });
 
         this.testGetMethodOfRequest();
+        this.testOkhttpOfRequest();
     }
 
 
-    private void testGetMethodOfRequest() {
+    private void testOkhttpOfRequest() {//okHttp库网络请求
+        Button okhttpBtn = findViewById(R.id.test_network_send_request_okhttp_btn);
+        okhttpBtn.setOnClickListener(this);
+    }
+
+    private void  sendRequestWithOkHttp(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    Request request = new Request.Builder()
+                            .url("https://www.baidu.com")
+                            .build();
+                    Response response = client.newCall(request).execute();
+
+                    String reponseData = response.body().string();
+                    showResponse(reponseData);
+
+                }catch (Exception exception){
+                    exception.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void testGetMethodOfRequest() {//普通网络请求
         Button sendRequest = (Button) findViewById(R.id.test_network_send_request);
         responseText = findViewById(R.id.test_network_response_text);
         sendRequest.setOnClickListener(this);
@@ -56,6 +87,8 @@ public class TestNerworkActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         if (v.getId() == R.id.test_network_send_request) {
             this.sendRequestWithHttpURLConnection();
+        } else if (v.getId() == R.id.test_network_send_request_okhttp_btn) {
+            this.sendRequestWithOkHttp();
         }
     }
 
