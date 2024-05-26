@@ -24,6 +24,7 @@ import com.ganghuang.mlc2_android.TestModules.TestFruitAdapter;
 import com.ganghuang.mlc2_android.TestModules.TestListViewActivity;
 import com.ganghuang.mlc2_android.TestModules.TestLoginActivity;
 import com.ganghuang.mlc2_android.TestModules.TestMsgBubbleActivity;
+import com.ganghuang.mlc2_android.TestModules.TestNerworkActivity;
 import com.ganghuang.mlc2_android.TestModules.TestRuntimePermissionActivity;
 
 import java.util.List;
@@ -120,7 +121,8 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestFilepersistenceActivity.actionJumpToTestFilepersistenceActivity(currentContext);
                 }else if(model.getFunctionId().equals("runtimePermission202405261011")){
                     TestRuntimePermissionActivity.actionJumpToTestRuntimePermissionActivity(currentContext);
-
+                } else if (model.getFunctionId().equals("netWork202405261012")) {
+                    TestNerworkActivity.actionJumpToTestNerworkActivity(currentContext);
                 }
             }
         });
