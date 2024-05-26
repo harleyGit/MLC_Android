@@ -1,4 +1,4 @@
-package com.ganghuang.mlc2_android;
+package com.ganghuang.mlc2_android.TestModules;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +11,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ganghuang.mlc2_android.R;
+import com.ganghuang.mlc2_android.TestModuleAdapter;
 import com.ganghuang.mlc2_android.TestModules.JsonParser;
 import com.ganghuang.mlc2_android.TestModules.TestFruitAdapter;
 
