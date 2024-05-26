@@ -21,6 +21,13 @@
         android:layout_marginTop="20dp"
         android:text="异步消息处理UI" />
 
+    <Button
+        android:id="@+id/test_android_thread_task_btn01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="异步任务" />
+
     <TextView
         android:id="@+id/test_android_thread_text"
         android:layout_width="wrap_content"

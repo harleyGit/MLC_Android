@@ -91,10 +91,16 @@ public class TestAndroidThreadActivity extends AppCompatActivity implements View
             Message message = new Message();
             message.what = UPDATE_TEXT;
             handler.sendMessage(message);
+        } else if (v.getId() == R.id.test_android_thread_task_btn01) {
+
         }
     }
 
+    private void testThread02() {//异步任务
+        Button btn00 = findViewById(R.id.test_android_thread_task_btn01);
 
+        btn00.setOnClickListener(this);
+    }
     private void testThread01() {//异步处理方法
         Button btn00 = findViewById(R.id.test_android_thread_btn00_change_text_);
 
