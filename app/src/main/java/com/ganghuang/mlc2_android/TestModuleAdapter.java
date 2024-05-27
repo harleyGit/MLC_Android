@@ -23,6 +23,7 @@ import com.ganghuang.mlc2_android.TestModules.TestFilepersistenceActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFragmentActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFruitAdapter;
 import com.ganghuang.mlc2_android.TestModules.TestListViewActivity;
+import com.ganghuang.mlc2_android.TestModules.TestLiveDataActivity;
 import com.ganghuang.mlc2_android.TestModules.TestLoginActivity;
 import com.ganghuang.mlc2_android.TestModules.TestMsgBubbleActivity;
 import com.ganghuang.mlc2_android.TestModules.TestNerworkActivity;
@@ -126,6 +127,8 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestNerworkActivity.actionJumpToTestNerworkActivity(currentContext);
                 } else if (model.getFunctionId().equals("thread202405261013")) {
                     TestAndroidThreadActivity.actionJumpToTestAndroidThreadActivity(currentContext);
+                }else if(model.getFunctionId().equals("liveData202405261014")){
+                    TestLiveDataActivity.actionJumpToTestLiveDataActivity(currentContext);
                 }
             }
         });
