@@ -63,11 +63,11 @@ public class TestDownloadTask extends AsyncTask<Void, Integer, Boolean> {
         super.onPostExecute(aBoolean);
 
         //progressDialog.dismiss();//关闭对话框
-        if (result){
+        //if (result){
            // Toast.makeText(context, "下载完成", Toast.LENGTH_SHORT).show();
-        }else {
+        //}else {
             //Toast.makeText(context, "下载失败", Toast.LENGTH_SHORT).show();
-        }
+        //}
     }
 
 
