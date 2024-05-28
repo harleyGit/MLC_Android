@@ -1,0 +1,24 @@
+{
+  "status": "success",
+  "message": "Products fetched successfully",
+  "data": {
+    "items": [
+      {
+        "item_pic": "https://example.com/image1.jpg",
+        "item_name": "Product 1",
+        "item_id": 1,
+        "market_price": 100,
+        "current_price": 90
+      },
+      {
+        "item_pic": "https://example.com/image2.jpg",
+        "item_name": "Product 2",
+        "item_id": 2,
+        "market_price": 200,
+        "current_price": 180
+      }
+    ],
+    "currentPage": 1,
+    "totalPages": 10
+  }
+}

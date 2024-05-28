@@ -51,5 +51,7 @@ dependencies {
     implementation ("com.alibaba:fastjson:1.1.72.android")
     //网络请求库
     implementation("com.squareup.okhttp3:okhttp:3.4.1")
+    //Gson库：https://central.sonatype.com/artifact/com.google.code.gson/gson/overview
+    implementation("com.google.code.gson:gson:2.11.0")
 
 }
