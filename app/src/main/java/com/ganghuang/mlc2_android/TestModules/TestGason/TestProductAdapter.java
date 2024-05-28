@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.ganghuang.mlc2_android.R;
 
 import java.util.ArrayList;
@@ -33,7 +34,10 @@ public class TestProductAdapter extends RecyclerView.Adapter<TestProductAdapter.
         holder.priceTextView.setText(String.valueOf(product.getCurrentPrice()));
 
         //Glide是一个图片加载库
-        //Glide.with(holder.itemView.getContext()).load(product.getImage()).into(holder.imageView);
+        // 使用 Glide 加载图片
+        Glide.with(holder.itemView.getContext())
+                .load(product.getImage())
+                .into(holder.imageView);
     }
 
     @Override

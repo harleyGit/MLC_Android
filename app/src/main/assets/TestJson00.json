@@ -4,21 +4,44 @@
   "data": {
     "items": [
       {
-        "item_pic": "https://example.com/image1.jpg",
+        "item_pic": "https://gips0.baidu.com/it/u=3602773692,1512483864&fm=3028&app=3028&f=JPEG&fmt=auto?w=960&h=1280",
         "item_name": "Product 1",
         "item_id": 1,
         "market_price": 100,
         "current_price": 90
       },
       {
-        "item_pic": "https://example.com/image2.jpg",
+        "item_pic": "https://gips3.baidu.com/it/u=3886271102,3123389489&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960",
         "item_name": "Product 2",
         "item_id": 2,
         "market_price": 200,
         "current_price": 180
+      },
+      {
+        "item_pic": "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png",
+        "item_name": "Product 3",
+        "item_id": 3,
+        "market_price": 2000,
+        "current_price": 1800
+      },
+      {
+        "item_pic": "https://img.pngsucai.com/00/77/98/8068c60236e606eb.webp",
+        "item_name": "Product 4",
+        "item_id": 3,
+        "market_price": 2000,
+        "current_price": 1800
+      },
+      {
+        "item_pic": "https://pic.616pic.com/ys_img/00/03/90/uwDbmLYuns.jpg",
+        "item_name": "Product 5",
+        "item_id": 3,
+        "market_price": 2000,
+        "current_price": 1800
       }
     ],
     "currentPage": 1,
     "totalPages": 10
   }
 }
+
+

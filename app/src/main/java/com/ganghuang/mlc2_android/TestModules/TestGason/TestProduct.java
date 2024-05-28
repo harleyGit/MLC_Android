@@ -6,6 +6,17 @@ import java.io.Serializable;
 import java.util.List;
 
 public class TestProduct implements Serializable {//定义的类，可能包含商品的相关信息，例如图片、名称、价格等
+
+    /**
+     * @SerializedName 是一个注解，用于指定在将 JSON 数据解析为 Java 对象时，JSON 字段与 Java 字段之间的映射关系。
+     * 它通常用于 JSON 字段名和 Java 字段名不一致的情况。
+     *
+     * @SerializedName("item_pic") 注解告诉 JSON 解析库（如 Gson），
+     * 在解析 JSON 数据时，JSON 字段 item_pic 对应的是 Java 字段 image。
+     *
+     * @SerializedName 注解是由 Gson 库提供的。
+     * Gson 是一个用于在 Java 和 JSON 之间进行转换的开源库。它不是系统自带的库，而是一个第三方库。
+     * **/
     @SerializedName("item_pic")
     private String image;
 

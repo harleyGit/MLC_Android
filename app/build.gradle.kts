@@ -54,4 +54,12 @@ dependencies {
     //Gson库：https://central.sonatype.com/artifact/com.google.code.gson/gson/overview
     implementation("com.google.code.gson:gson:2.11.0")
 
+    //Glide加载和显示图片的三方库
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    /**
+     * annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0' 的主要作用是处理 Glide 的注解，自动生成辅助代码（如 GlideApp 类），从而简化代码编写并提供更强大的功能和优化。
+     * 这是 Glide 提供的一种标准实践，用于增强和定制图片加载和处理的功能
+     * */
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
 }
