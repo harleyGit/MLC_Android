@@ -78,6 +78,56 @@
     </RelativeLayout>
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_fxz_activity_list_item_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red_FF1493"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/test_drawable_activity_cl_thumbnail"
+            android:layout_width="116dp"
+            android:layout_height="116dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/test_drawable_activity_iv_thumbnail"
+                android:layout_width="116dp"
+                android:layout_height="116dp"
+                app:layout_constrainedWidth="@+id/test_drawable_activity_cl_thumbnail"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/test_pic_dahe00"
+                android:background="@color/blue_0000FF"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_activity_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="23dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/green_98FB98"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/test_drawable_activity_cl_thumbnail"
+            android:text="价格   ￥119.00" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 </LinearLayout>
 
 

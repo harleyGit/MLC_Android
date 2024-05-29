@@ -7,14 +7,17 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -45,11 +48,80 @@ public class TestDrawableActivity extends AppCompatActivity {
         this.testCircleOfTextView();
         this.testSetPicAndTxtPosition();
 
-       // this.testPicTxtOfPosition();
+        this.testPicTxtOfPosition();
+
+        this.testMoFangAiQiangGouDongTaiBuJu();
+    }
+
+    private void testMoFangAiQiangGouDongTaiBuJu() {//模仿爱抢购动态布局
+        // 获取布局中的控件
+        ConstraintLayout constraintLayout = findViewById(R.id.layout_fxz_activity_list_item_constraintLayout);
+        // 设置值
+        final int[] amount = {100}; // 根据实际情况设置 amount 的值
+
+        // 设置点击事件监听器
+        constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView textView = findViewById(R.id.tv_activity_price);
+                ImageView imageView = findViewById(R.id.test_drawable_activity_iv_thumbnail);
+                ConstraintLayout thumbnailLayout = findViewById(R.id.test_drawable_activity_cl_thumbnail);
+
+
+                // 获取 ConstraintSet 对象
+                ConstraintSet constraintSet = new ConstraintSet();
+                constraintSet.clone(constraintLayout);
+
+                if (amount[0] > 0) {
+                    amount[0] = -100;
+                    // 设置 TextView 与左边的 ImageView 底部对齐
+                    //constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, thumbnailLayout.getId(), ConstraintSet.BOTTOM);//这个是顶部对齐了
+                    //constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, thumbnailLayout.getId(), ConstraintSet.BOTTOM, HGUntil.pxToDp(TestDrawableActivity.this, 10));//这个距离底部还有12dp距离
+
+                    // 设置 TextView 与 id 为 test_drawable_activity_cl_thumbnail 的控件底部对齐
+                    constraintSet.clear(textView.getId(), ConstraintSet.TOP); // 清除原有顶部对齐的约束
+                    constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, R.id.test_drawable_activity_cl_thumbnail, ConstraintSet.BOTTOM);
+
+
+                    constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, R.id.test_drawable_activity_cl_thumbnail, ConstraintSet.BOTTOM, 0);
+                    constraintSet.connect(textView.getId(), ConstraintSet.START, R.id.test_drawable_activity_cl_thumbnail, ConstraintSet.END, dpToPx(10));
+                    constraintSet.clear(textView.getId(), ConstraintSet.TOP); // 清除顶部对齐的约束
+
+
+                } else {
+                    amount[0] = 100;
+
+                    /*
+                    // 如果 amount <= 0，恢复原本的布局(不行，无法使其恢复到之前的布局了)
+                    constraintSet.clear(textView.getId(), ConstraintSet.BOTTOM); // 清除底部对齐的约束
+                    constraintSet.connect(textView.getId(), ConstraintSet.TOP, R.id.test_drawable_activity_cl_thumbnail, ConstraintSet.TOP);
+                     */
+
+                    // 如果 amount <= 0，恢复原本的布局
+                    constraintSet.clear(textView.getId(), ConstraintSet.BOTTOM); // 清除底部对齐的约束
+                    constraintSet.connect(textView.getId(), ConstraintSet.START, R.id.test_drawable_activity_cl_thumbnail, ConstraintSet.END, dpToPx(10));
+                    constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, R.id.layout_fxz_activity_list_item_constraintLayout, ConstraintSet.BOTTOM, dpToPx(40));
+
+                }
+
+                // 应用约束
+                constraintSet.applyTo(constraintLayout);
+
+                // 在点击时执行的操作，例如显示一个 Toast 消息
+                Toast.makeText(TestDrawableActivity.this, "ConstraintLayout 被点击了", Toast.LENGTH_SHORT).show();
+            }
+
+            // 将 dp 转换为 px 的方法
+            private int dpToPx(int dp) {
+                return (int) (dp * getResources().getDisplayMetrics().density);
+            }
+        });
+
+
     }
 
 
-    private  void testPicTxtOfPosition(){//设置汉库克图片
+    private void testPicTxtOfPosition() {//设置汉库克图片
 
         // 获取 RelativeLayout, ImageView 和 TextView
         RelativeLayout relativeLayout = findViewById(R.id.test_drawable_activity_relativeLayout);
