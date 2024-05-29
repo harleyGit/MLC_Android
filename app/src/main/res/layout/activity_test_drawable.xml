@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestModules.TestDrawableActivity">
+
+    <TextView
+        android:id="@+id/test_drawable_activity_txtView00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="216dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/red_Crimson_DC143C"
+        android:paddingStart="10dp"
+        android:paddingLeft="4dp"
+        android:paddingTop="2dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="2dp"
+        android:text="设置图片大小和圆角" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <!-- 左边图片 -->
+        <ImageView
+            android:id="@+id/test_drawable_activity_leftImage"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="100dp"
+            android:src="@drawable/test_pic_ai_s01"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 上面的 TextView -->
+        <TextView
+            android:id="@+id/test_drawable_activity_txtView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="平台补贴2000元"
+            app:layout_constraintBottom_toBottomOf="@+id/test_drawable_activity_leftImage"
+            app:layout_constraintStart_toEndOf="@+id/test_drawable_activity_leftImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/test_drawable_activity_relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 左边图片 -->
+        <ImageView
+            android:id="@+id/test_drawable_activity_imageView00"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/test_pic_hankuke00" />
+
+        <!-- 上面的 TextView -->
+        <TextView
+            android:id="@+id/test_drawable_activity_textView00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="10dp"
+            android:text="平台补贴12000元"
+            android:layout_toEndOf="@id/test_drawable_activity_imageView00"
+            android:layout_alignBottom="@id/test_drawable_activity_imageView00" />
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+
+    <!--    layout_toEndOf 是相对布局(RelativeLayout)中的一种约束属性，用于指定一个视图相对于另一个视图的位置。确切地说，它将一个视图放置在另一个视图的右侧，这是在支持从右到左语言（如阿拉伯语和希伯来语）时使用的更通用的属性。与 layout_toEndOf 对应的属性是 layout_toStartOf，它将一个视图放置在另一个视图的左侧
+    android:layout_toEndOf="@id/test_drawable_activity_imageView00"-->
+
