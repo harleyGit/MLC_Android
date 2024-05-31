@@ -30,6 +30,7 @@ import com.ganghuang.mlc2_android.TestModules.TestLoginActivity;
 import com.ganghuang.mlc2_android.TestModules.TestMsgBubbleActivity;
 import com.ganghuang.mlc2_android.TestModules.TestNerworkActivity;
 import com.ganghuang.mlc2_android.TestModules.TestRuntimePermissionActivity;
+import com.ganghuang.mlc2_android.TestModules.TestUILayoutActivity;
 
 import java.util.List;
 
@@ -101,40 +102,42 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                  * 使用 TestModuleAdapter.this 是为了确保在匿名内部类中能够正确引用外部类的实例和方法。
                  * 这样做的主要目的是解决作用域问题，因为在内部类中，this 关键字默认指向的是内部类的实例。
                  */
-                if (model.getFunctionId().equals("firstActivity202405211620")) {
+                if (model.getFunctionId().equals("firstActivity202405211620")) {//FirstActivity
                     TestModuleAdapter.this.testJumpToFirstActivity();
-                } else if (model.getFunctionId().equals("activityLifeCycle202405211621")) {
+                } else if (model.getFunctionId().equals("activityLifeCycle202405211621")) {//Activity的生命周期
                     TestModuleAdapter.this.testJumpToActivityLifeCycle();
-                } else if (model.getFunctionId().equals("secondActivity202405211804")) {
+                } else if (model.getFunctionId().equals("secondActivity202405211804")) {//ListView
                     TestModuleAdapter.this.testShowJumpToSecondActivity();
-                } else if (model.getFunctionId().equals("uilayoutActivity202405211802")) {
+                } else if (model.getFunctionId().equals("uilayoutActivity202405211802")) {//UI布局的使用
                     TestFruitAdapter.TestUILayoutActivityTest.actionStartOfTestUILayoutActivity(TestModuleAdapter.this.context);
                 } else if (model.getFunctionId().equals("widgetActivity202405211803")) {
                     TestModuleAdapter.this.testJumpToTestUIWidgetActivity();
-                } else if (model.getFunctionId().equals("listView202405211801")) {
+                } else if (model.getFunctionId().equals("listView202405211801")) {//LIstView的用法
                     TestListViewActivity.actionStartOfTestListViewActivity(TestModuleAdapter.this.context);
-                } else if (model.getFunctionId().equals("simpleBubble202405211804")) {
+                } else if (model.getFunctionId().equals("simpleBubble202405211804")) {//简单聊天气泡
                     TestMsgBubbleActivity.actionStartOfTestMsgBubbleActivity(TestModuleAdapter.this.context);
-                } else if (model.getFunctionId().equals("fragment202405211804")) {
+                } else if (model.getFunctionId().equals("fragment202405211804")) {//FragmentDemo的使用
                     TestFragmentActivity.actionStartOfTestFragmentActivity(TestModuleAdapter.this.context);
-                } else if (model.getFunctionId().equals("broadcastReceiver202405211804")) {
+                } else if (model.getFunctionId().equals("broadcastReceiver202405211804")) {//广播接受器
                     TestBroadcastActivity.actionStartOfTestBroadcastActivity(TestModuleAdapter.this.context);
-                }else if(model.getFunctionId().equals("broadcastReceiverForceOffLine202405211804")){
+                }else if(model.getFunctionId().equals("broadcastReceiverForceOffLine202405211804")){//广播强制下线
                     TestLoginActivity.actionJumpToTestLoginActivity(TestModuleAdapter.this.context);
-                }else if(model.getFunctionId().equals("filePersistenceActivity202405211804")){
+                }else if(model.getFunctionId().equals("filePersistenceActivity202405211804")){//数据存储-持久化技术
                     TestFilepersistenceActivity.actionJumpToTestFilepersistenceActivity(currentContext);
-                }else if(model.getFunctionId().equals("runtimePermission202405261011")){
+                }else if(model.getFunctionId().equals("runtimePermission202405261011")){//跨程序共享数据-拨打☎️电话权限
                     TestRuntimePermissionActivity.actionJumpToTestRuntimePermissionActivity(currentContext);
-                } else if (model.getFunctionId().equals("netWork202405261012")) {
+                } else if (model.getFunctionId().equals("netWork202405261012")) {//网络技术-HTTP请求
                     TestNerworkActivity.actionJumpToTestNerworkActivity(currentContext);
-                } else if (model.getFunctionId().equals("thread202405261013")) {
+                } else if (model.getFunctionId().equals("thread202405261013")) {//多线程测试
                     TestAndroidThreadActivity.actionJumpToTestAndroidThreadActivity(currentContext);
-                }else if(model.getFunctionId().equals("liveData202405261014")){
+                }else if(model.getFunctionId().equals("liveData202405261014")){//LiveData使用
                     TestLiveDataActivity.actionJumpToTestLiveDataActivity(currentContext);
-                } else if (model.getFunctionId().equals("MSF202405261015")) {
+                } else if (model.getFunctionId().equals("MSF202405261015")) {//网路请求中模仿觅食蜂的数据解析
                     TestProductActivity.actionJumpToTestProductActivity(currentContext);
-                }else if(model.getFunctionId().equals("drawable202405261016")){
+                }else if(model.getFunctionId().equals("drawable202405261016")){//TextView增加圆角和布局设置
                     TestDrawableActivity.actionJumpToTestDrawableActivity(currentContext);
+                } else if (model.getFunctionId().equals("uiLayout202405261017")) {
+                    TestUILayoutActivity.actionJumpToTestUILayoutActivity(currentContext);
                 }
             }
         });

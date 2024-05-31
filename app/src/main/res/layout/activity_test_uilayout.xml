@@ -12,7 +12,7 @@
 <!--    <include layout="@layout/title_layout"/>-->
 
 <!--    在添加自定义控件的时候，我们需要指明控件的完整类名，包名在这里是不可以省略的。-->
-    <com.ganghuang.mlc2_android.TestModules.TestFruitAdapter.TestTitleLayout
+    <view class="com.ganghuang.mlc2_android.TestModules.TestFruitAdapter$TestTitleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -24,7 +24,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="40dp"
         android:textColor="@color/red_Crimson_DC143C"
-        android:text="test_uiLayout_Button 2_0" />
+        android:text="按钮🐶 2_0" />
 
     <Button
         android:id="@+id/test_uiLayout_button2_"
@@ -33,7 +33,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="40dp"
-        android:text="test_uiLayout_Button 2_1" />
+        android:text="按钮🐱 2_1" />
 
 
     <Button
@@ -43,7 +43,7 @@
         android:layout_above="@id/test_uiLayout_button2_2"
         android:layout_toLeftOf="@id/test_uiLayout_button2_2"
         android:textColor="@color/red_Crimson_DC143C"
-        android:text="uiLayout3_0" />
+        android:text="按钮🐔" />
 
 
     <Button
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/test_uiLayout_button2_2"
         android:layout_toRightOf="@id/test_uiLayout_button2_2"
-        android:text="uiLayout3_1" />
+        android:text="按钮🐦" />
 
 
 
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="test_uiLayout_Button 2_2" />
+        android:text="中心⏰🌞 2_2" />
 
     <Button
         android:id="@+id/uiLayout3_2"
@@ -70,7 +70,7 @@
         android:layout_below="@id/test_uiLayout_button2_2"
         android:layout_toLeftOf="@id/test_uiLayout_button2_2"
         android:textColor="@color/red_Crimson_DC143C"
-        android:text="uiLayout3_2" />
+        android:text="按钮🐣" />
 
 
     <Button
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/test_uiLayout_button2_2"
         android:layout_toRightOf="@id/test_uiLayout_button2_2"
-        android:text="uiLayout3_3" />
+        android:text="按钮🪿" />
 
 
     <Button
@@ -89,7 +89,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:textColor="@color/red_Crimson_DC143C"
-        android:text="test_uiLayout_Button 2_3" />
+        android:text="按钮✈️" />
 
 
     <Button
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:text="test_uiLayout_Button 2_4" />
+        android:text="按钮🥎" />
 
 
 </RelativeLayout>

@@ -78,9 +78,11 @@ public class TestDrawableActivity extends AppCompatActivity {
                     //constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, thumbnailLayout.getId(), ConstraintSet.BOTTOM);//这个是顶部对齐了
                     //constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, thumbnailLayout.getId(), ConstraintSet.BOTTOM, HGUntil.pxToDp(TestDrawableActivity.this, 10));//这个距离底部还有12dp距离
 
+                    /*
                     // 设置 TextView 与 id 为 test_drawable_activity_cl_thumbnail 的控件底部对齐
                     constraintSet.clear(textView.getId(), ConstraintSet.TOP); // 清除原有顶部对齐的约束
                     constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, R.id.test_drawable_activity_cl_thumbnail, ConstraintSet.BOTTOM);
+                     */
 
 
                     constraintSet.connect(textView.getId(), ConstraintSet.BOTTOM, R.id.test_drawable_activity_cl_thumbnail, ConstraintSet.BOTTOM, 0);
