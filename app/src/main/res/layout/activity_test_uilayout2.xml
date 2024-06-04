@@ -120,42 +120,42 @@
             android:text="alignRight" />
     </RelativeLayout>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp"
-        android:background="@color/teal_200">
+        android:background="@color/blue_0000FF">
 
-        <TextView
-            android:id="@+id/right_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:background="@color/purple_200"
-            android:gravity="center"
-            android:text="右上角1111111"
-            android:textSize="32sp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_min="120dp"
-            app:layout_goneMarginStart="20dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="2dp"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33" />
 
-        <TextView
-            android:id="@+id/where"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
-            android:background="#ff0000"
-            android:text="我在哪里"
-            app:layout_constraintRight_toLeftOf="@+id/right_top"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_goneMarginEnd="260dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="130dp" />
+
+        <android.widget.Button
+            android:id="@+id/b"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/green_40E0D0"
+            android:text="bbbb"
+            app:layout_constraintLeft_toLeftOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="@id/guideline2"
+            app:layout_constraintWidth_default="wrap"
+            tools:ignore="MissingConstraints" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
 
-<!--    android:visibility="gone"-->
+    <!--    android:visibility="gone"-->
