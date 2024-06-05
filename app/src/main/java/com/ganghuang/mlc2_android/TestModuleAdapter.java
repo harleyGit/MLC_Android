@@ -28,6 +28,7 @@ import com.ganghuang.mlc2_android.TestModules.TestListViewActivity;
 import com.ganghuang.mlc2_android.TestModules.TestLiveDataActivity;
 import com.ganghuang.mlc2_android.TestModules.TestLoginActivity;
 import com.ganghuang.mlc2_android.TestModules.TestMsgBubbleActivity;
+import com.ganghuang.mlc2_android.TestModules.TestMultithreadActivity;
 import com.ganghuang.mlc2_android.TestModules.TestNerworkActivity;
 import com.ganghuang.mlc2_android.TestModules.TestRuntimePermissionActivity;
 import com.ganghuang.mlc2_android.TestModules.TestUILayoutActivity;
@@ -138,6 +139,8 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestDrawableActivity.actionJumpToTestDrawableActivity(currentContext);
                 } else if (model.getFunctionId().equals("uiLayout202405261017")) {
                     TestUILayoutActivity.actionJumpToTestUILayoutActivity(currentContext);
+                } else if (model.getFunctionId().equals("multithread202405261018")) {
+                    TestMultithreadActivity.actionJumpToTestMultithreadActivity(currentContext);
                 }
             }
         });
