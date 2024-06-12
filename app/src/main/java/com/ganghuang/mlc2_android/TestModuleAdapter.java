@@ -31,6 +31,7 @@ import com.ganghuang.mlc2_android.TestModules.TestMsgBubbleActivity;
 import com.ganghuang.mlc2_android.TestModules.TestMultithreadActivity;
 import com.ganghuang.mlc2_android.TestModules.TestNerworkActivity;
 import com.ganghuang.mlc2_android.TestModules.TestRuntimePermissionActivity;
+import com.ganghuang.mlc2_android.TestModules.TestSystemPermissionActivity;
 import com.ganghuang.mlc2_android.TestModules.TestUILayoutActivity;
 
 import java.util.List;
@@ -131,6 +132,8 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestNerworkActivity.actionJumpToTestNerworkActivity(currentContext);
                 } else if (model.getFunctionId().equals("thread202405261013")) {//多线程测试
                     TestAndroidThreadActivity.actionJumpToTestAndroidThreadActivity(currentContext);
+                }else if(model.getFunctionId().equals("permission202405261019")){//手机系统服务测试
+                    TestSystemPermissionActivity.actionJumpToTestSystemPermissionActivity(currentContext);
                 }else if(model.getFunctionId().equals("liveData202405261014")){//LiveData使用
                     TestLiveDataActivity.actionJumpToTestLiveDataActivity(currentContext);
                 } else if (model.getFunctionId().equals("MSF202405261015")) {//网路请求中模仿觅食蜂的数据解析

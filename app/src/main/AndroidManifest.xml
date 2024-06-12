@@ -10,6 +10,9 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/><!-- 网络定位权限（普通定位权限） -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/><!-- 精准定位权限，如：GPS定位（普通定位权限） -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/><!-- 后台定位权限,api29，android10新增 -->
 
     <application
         android:allowBackup="true"
@@ -21,10 +24,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MLC2_Android"
         tools:targetApi="31">
+        <activity
+            android:name=".TestModules.TestSystemPermissionActivity"
+            android:exported="false" />
+
         <service
             android:name=".TestMyService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
             android:name=".TestModules.TestMultithreadActivity"
