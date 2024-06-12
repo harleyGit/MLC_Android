@@ -5,16 +5,36 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_marginTop="60dp"
+    android:orientation="vertical"
     tools:context=".TestModules.TestSystemPermissionActivity">
 
     <android.widget.Button
+        android:id="@+id/activity_test_system_permission_btn01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
         android:background="@color/purple_200"
+        android:text="系统定位权限测试02" />
+
+    <android.widget.Button
         android:id="@+id/activity_test_system_permission_btn00"
-        android:text="系统定位权限测试"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/purple_200"
+        android:text="系统定位权限测试" />
+
+    <TextView
+        android:id="@+id/activity_test_system_permission_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Location will be shown here" />
 
 </LinearLayout>

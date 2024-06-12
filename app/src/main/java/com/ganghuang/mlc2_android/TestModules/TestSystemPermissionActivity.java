@@ -1,9 +1,11 @@
 package com.ganghuang.mlc2_android.TestModules;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -11,6 +13,8 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -22,6 +26,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.ganghuang.mlc2_android.R;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
 
 public class TestSystemPermissionActivity extends AppCompatActivity implements View.OnClickListener {
     public static void actionJumpToTestSystemPermissionActivity(Context context) {//跳转到TestSystemPermissionActivity
@@ -30,10 +40,16 @@ public class TestSystemPermissionActivity extends AppCompatActivity implements V
         context.startActivity(intent);
     }
 
+    private TextView textViewLocation;
+
+
+    private static final int REQUEST_CODE_LOCATION_PERMISSION = 100;
     private static final int PERMISSION_REQUEST_CODE_1 = 101;
     private static final int PERMISSION_REQUEST_CODE_2 = 102;
     private static final int PERMISSION_REQUEST_CODE_3 = 103;
     private static final int PERMISSION_REQUEST_CODE_4 = 104;
+
+    private FusedLocationProviderClient fusedLocationProviderClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +64,21 @@ public class TestSystemPermissionActivity extends AppCompatActivity implements V
 
 
         testLocation();
+        testLocationGoogleLib();
     }
 
 
     private void testLocation() {//定位权限
         Button btn0 = findViewById(R.id.activity_test_system_permission_btn00);
         btn0.setOnClickListener(this);
+    }
+
+    private void testLocationGoogleLib() {//用到了implementation("com.google.android.gms:play-services-location:21.0.1")//添加Google Play服务依赖项
+        textViewLocation = findViewById(R.id.activity_test_system_permission_textview);
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        Button btn1 = findViewById(R.id.activity_test_system_permission_btn01);
+        btn1.setOnClickListener(this);
     }
 
     @Override
@@ -69,7 +94,39 @@ public class TestSystemPermissionActivity extends AppCompatActivity implements V
                 //如果请求结果为不允许，则需手动发出请求
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE_1);
             }
+        } else if (v.getId() == R.id.activity_test_system_permission_btn01) {
+            if (ContextCompat.checkSelfPermission(
+                    getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                        TestSystemPermissionActivity.this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        REQUEST_CODE_LOCATION_PERMISSION
+                );
+            } else {
+                getCurrentLocation();
+            }
         }
+    }
+
+    @SuppressLint("MissingPermission")
+    private void getCurrentLocation() {
+        fusedLocationProviderClient.getLastLocation()
+                .addOnCompleteListener(new OnCompleteListener<Location>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Location> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            Location location = task.getResult();
+                            textViewLocation.setText(
+                                    "Latitude: " + location.getLatitude() +
+                                            "\nLongitude: " + location.getLongitude()
+                            );
+                        } else {
+                            Toast.makeText(TestSystemPermissionActivity.this,
+                                    "Failed to get location", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     private void requestPermissions() {
@@ -100,6 +157,15 @@ public class TestSystemPermissionActivity extends AppCompatActivity implements V
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
+            case REQUEST_CODE_LOCATION_PERMISSION:{
+                if (requestCode == REQUEST_CODE_LOCATION_PERMISSION && grantResults.length > 0) {
+                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        getCurrentLocation();
+                    } else {
+                        Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }break;
             case PERMISSION_REQUEST_CODE_1:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // 用户已授予权限，执行您的逻辑
@@ -136,6 +202,7 @@ public class TestSystemPermissionActivity extends AppCompatActivity implements V
                     Log.d("PERMISSION", "存储权限已拒绝");
                 }
                 break;
+
         }
     }
 

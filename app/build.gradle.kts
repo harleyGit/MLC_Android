@@ -62,7 +62,7 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    //implementation("com.google.android.gms:play-services-location:21.0.1")//添加Google Play服务依赖项
+    implementation("com.google.android.gms:play-services-location:21.0.1")//添加Google Play定位服务依赖项
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     //implementation("com.android.support:appcompat-v7:24.2.1")
