@@ -62,6 +62,9 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
+
+    implementation("org.greenrobot:eventbus:3.2.0")//EventBus 库是一个发布/订阅事件总线库，用于在不同组件之间传递消息，简化组件之间的通信
+
     implementation("com.google.android.gms:play-services-location:21.0.1")//添加Google Play定位服务依赖项
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))

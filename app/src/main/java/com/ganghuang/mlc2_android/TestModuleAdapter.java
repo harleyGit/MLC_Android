@@ -20,6 +20,8 @@ import com.ganghuang.mlc2_android.TestModules.SecondActivityTest;
 import com.ganghuang.mlc2_android.TestModules.TestAndroidThreadActivity;
 import com.ganghuang.mlc2_android.TestModules.TestBroadcastActivity;
 import com.ganghuang.mlc2_android.TestModules.TestDrawableActivity;
+import com.ganghuang.mlc2_android.TestModules.TestEventbusActivity;
+import com.ganghuang.mlc2_android.TestModules.TestEventbusSecondActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFilepersistenceActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFragmentActivity;
 import com.ganghuang.mlc2_android.TestModules.TestFruitAdapter;
@@ -134,7 +136,27 @@ public class TestModuleAdapter extends RecyclerView.Adapter<TestModuleViewHolder
                     TestAndroidThreadActivity.actionJumpToTestAndroidThreadActivity(currentContext);
                 }else if(model.getFunctionId().equals("permission202405261019")){//手机系统服务测试
                     TestSystemPermissionActivity.actionJumpToTestSystemPermissionActivity(currentContext);
-                }else if(model.getFunctionId().equals("liveData202405261014")){//LiveData使用
+                } else if (model.getFunctionId().equals("eventbus202405261020")) {//eventbus发布-订阅事件
+                    TestEventbusActivity.actionJumpToTestEventbusActivity(currentContext);
+                }else if (model.getFunctionId().equals("")) {
+
+                } else if (model.getFunctionId().equals("")) {
+
+                } else if (model.getFunctionId().equals("")) {
+
+                } else if (model.getFunctionId().equals("")) {
+
+                } else if (model.getFunctionId().equals("")) {
+
+                } else if (model.getFunctionId().equals("")) {
+
+                } else if (model.getFunctionId().equals("")) {
+
+                } else if (model.getFunctionId().equals("")) {
+
+                } else if (model.getFunctionId().equals("")) {
+
+                } else if(model.getFunctionId().equals("liveData202405261014")){//LiveData使用
                     TestLiveDataActivity.actionJumpToTestLiveDataActivity(currentContext);
                 } else if (model.getFunctionId().equals("MSF202405261015")) {//网路请求中模仿觅食蜂的数据解析
                     TestProductActivity.actionJumpToTestProductActivity(currentContext);
